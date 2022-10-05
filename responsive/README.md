@@ -6,25 +6,19 @@ Lab 5 is a project using to
 3. Understand what responsive design is.
 4. Understand the engineering technique of using sprite sheets.
 
-
-## How to run the project
-
-To view the website please click [HERE](https://chengima.github.io/)
-
 ## Completion Status
 
-- [x] resume.html
-- [x] bio.html
-- [x] index.html
-- [x] README.md
-- [x] CSS
+- [x] The basics
+- [x] The README file
+- [x] `responsive.css` style sheet
+- [ ] modify the HTML 
+- [ ] use a number of separate images 
 
 
-## Credits/Reference Guides
+## Readings and References
 
-- CSS/HTML: https://w3schools.com/
-- Markup Validation checker: https://validator.w3.org/
-- CSS Validation checker: https://jigsaw.w3.org/css-validator/
+- [Beyond Media Queries: Using Newer HTML & CSS Features for Responsive Designs (css-tricks.com)](https://css-tricks.com/beyond-media-queries-using-newer-html-css-features-for-responsive-designs//)
+- [Media Queries for Standard Devices (css-tricks.com)](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/)
 
 ## Collaboration
 Solo project
