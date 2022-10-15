@@ -8,11 +8,11 @@
 5. Recognize the power of HTML5.
 
 ## Completion Status
-- [x] The basics
+- [x] The basics (e.g., folder name in private GitHub repository, file names, repo name, README.md file, one CSS file)
 - [x] The README file
-- [x] `responsive.css` style sheet
-- [ ] modify the HTML 
-- [ ] use a number of separate images 
+- [x] Annotate the video with the lyrics of the song using JavaScript
+- [x] Style the page with CSS
+- [ ] Used jQuery or WebVTT
 
 
 ## Readings and References
