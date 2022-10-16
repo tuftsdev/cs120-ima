@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ride-Hailing Service</title>
+</head>
+<body>
+    <h1>The Ride-Hailing Service</h1>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            let options = {
+                zoom: 8 ,
+                center: {lat: 42.352271, lng: -71.05524200000001}
+            }
+             let map = new google.maps.Map(document.getElementById('map'), options);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtwtjHeET6SKF3mgKJf-WQstRo8Vg-wnU&callback=initMap"></script>
+</body>
+</html>
