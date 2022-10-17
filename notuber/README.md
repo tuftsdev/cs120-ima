@@ -14,6 +14,11 @@
 - [x] A separate CSS file 
 - [x] Performance Optimization
 
+## Performance Optimization
+![Performance Optimization Before](performance_before.png "Performance Optimization Before")
+![Performance Optimization After](performance_after.png "Performance Optimization After")
+
+
 ## Collaboration
 Solo project
 
