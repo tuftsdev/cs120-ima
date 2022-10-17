@@ -16,10 +16,12 @@ Create a ride-hailing service --both the client and server. Parts 1 and 2 are th
 
 ## Performance Optimization
 <BEFORE>
+
 ![Performance Optimization Before](performance_before.png "Performance Optimization Before")
 
 
 <AFTER>
+
 ![Performance Optimization After](performance_after.png "Performance Optimization After")
 
 
