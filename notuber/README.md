@@ -1,7 +1,7 @@
 # Lab 8: The Ride-Hailing Service, Part 1
 
 ## Objectives
-- Create a ride-hailing service --both the client and server. Parts 1 and 2 are the client, and part 3 will be the server.
+Create a ride-hailing service --both the client and server. Parts 1 and 2 are the client, and part 3 will be the server.
 
 ## Completion Status
 - [x] The basics (e.g., folder name in private GitHub repository, file names, repo name, README.md file, one CSS file)
@@ -15,7 +15,11 @@
 - [x] Performance Optimization
 
 ## Performance Optimization
+<BEFORE>
 ![Performance Optimization Before](performance_before.png "Performance Optimization Before")
+
+
+<AFTER>
 ![Performance Optimization After](performance_after.png "Performance Optimization After")
 
 
