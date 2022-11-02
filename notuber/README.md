@@ -1,32 +1,18 @@
-# Lab 8: The Ride-Hailing Service, Part 1
+# Lab 10: The Ride-Hailing Service, Part 2
 
 ## Objectives
 Create a ride-hailing service --both the client and server. Parts 1 and 2 are the client, and part 3 will be the server.
 
+Lab #10, Part 2 - populate the map with dynamic content --information that changes over time. That is, you request a ride, and vehicles available will be displayed on map.
+
 ## Completion Status
-- [x] The basics (e.g., folder name in private GitHub repository, file names, repo name, README.md file, one CSS file)
-- [x] The README file
-- [x] Map on entire page
-- [x] A separate file for the JavaScript (Not mix in with HTML page)
-- [x] Map is centered on latitude = 42.352271, longitude = -71.05524200000001 (The location is South Station in Boston, MA)
-- [x] 6 vehicles on the map are marker with the icon: `car.png`
-- [x] Info window pop up with on click
-- [x] A separate CSS file 
-- [x] Performance Optimization
-
-## Performance Optimization
-<BEFORE>
-
-![Performance Optimization Before](performance_before.png "Performance Optimization Before")
-
-
-<AFTER>
-
-![Performance Optimization After](performance_after.png "Performance Optimization After")
-
+- [x] Determine your geolocation and place a marker
+- [x] Make a request to the ride-hailing API and each vehicle on the map shall be a marker with a car icon
+- [x] Upon clicking on your marker on the map, display an information window noting the closest vehicle from where you are including the distance away in miles
+- [x] Render a polyline that connects "your" marker to the marker of the closest vehicle.
 
 ## Collaboration
 Solo project
 
 ## Time in production
-*Around 4 hours*
+*Around 9 hours*
