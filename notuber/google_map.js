@@ -1,71 +1,104 @@
 function initMap() {
-    //Map options
-    let options = {
-        zoom: 13,
-        center: {lat: 42.352271, lng: -71.05524200000001}
-    }
-    //New map
-     let map = new google.maps.Map(document.getElementById('map'), options);
-    //array of markers
-    let markers = [
-    {
-         coords: {lat: 42.3453, lng: -71.0464},
-         iconImage: "car.png",
-         content: '<h1>mXfkjrFw</h1>',
-     },
-     {
-        coords:{lat: 42.3662, lng: -71.0621},
-        iconImage: "car.png",
-        content: '<h1>nZXB8ZHz</h1>'
-        },
-        {
-        coords:{lat: 42.3603, lng: -71.0547},
-        iconImage: "car.png",
-        content: '<h1>Tkwu74WC</h1>'
-    },
-        {
-        coords:{lat: 42.3472, lng: -71.0802},
-        iconImage: "car.png",
-        content: '<h1>5KWpnAJN</h1>'
-        },
-        {
-        coords:{lat: 42.3663, lng: -71.0544},
-        iconImage: "car.png",
-        content: '<h1>uf5ZrXYw</h1>'
-    },
-        {
-            coords:{lat: 42.3542, lng: -71.0704},
-            iconImage: "car.png",
-            content: '<h1>VMerzMH8</h1>'
-        },
-    ];
+    //my geolocatioon
+    x = navigator.geolocation;
+    x.getCurrentPosition(success, failure);
+    
+    let result;
+    function success(position) {
+        var myLat = position.coords.latitude;
+        var myLong = position.coords.longitude;
 
-    for (let i = 0; i < markers.length; i++) {
-        addMarker(markers[i]);
-    }
+        var coords = new google.maps.LatLng(myLat, myLong);
+        var mapOptions = {
+            zoom: 3,
+            center: coords,
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var marker = new google.maps.Marker({map: map, position:coords});
 
+        
+        //calling Ride-Hailing API
+        var http = new XMLHttpRequest();
+        var url = `https://jordan-marsh.herokuapp.com/rides`;
+        var params = `username=acM4zqDt&lat=${myLat}&lng=${myLong}`;
+        http.open('POST', url, true);      
 
-    //Add marker function
-    function addMarker(props) {
-     let marker = new google.maps.Marker({
-         position: props.coords,
-         map: map,
-        //  icon: props.iconImage
-     });
-     //check for customicon
-     if(props.iconImage){
-         //set icon image
-        marker.setIcon(props.iconImage);
-     }
-     //check content
-     if(props.content) {
-        var infoWindow = new google.maps.InfoWindow({
-        content: props.content
-        });
+        //Send the proper header information along with the request
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        http.onreadystatechange = function() {//Call a function when the state changes.
+            if(http.readyState == 4 && http.status == 200) {
+                var jsonStr = http.response;
+                var jsonObj = JSON.parse(jsonStr);
+                var distance = [];
+                var obj = {};
+                for (i = 0; i < jsonObj.length; i++) {
+                    var a = new google.maps.LatLng(myLat, myLong);
+                    var b = new google.maps.LatLng(jsonObj[i].lat, jsonObj[i].lng);
+                    var result = google.maps.geometry.spherical.computeDistanceBetween(a,b);
+                    var mile =  result/1609.344;
+                    obj[mile] = [jsonObj[i].lat, jsonObj[i].lng]
+
+                    distance.push(mile);
+
+                    function addMarker(props){
+                        let marker = new google.maps.Marker({
+                            position: props.coords,
+                            map: map,
+                        });
+                        if(props.iconImage) {
+                            marker.setIcon(props.iconImage)
+                        }    
+
+                        // if(props.content) {
+                        //     var infoWindow = new google.maps.InfoWindow({
+                        //         content: props.content
+                        //         });
+                        // }
+                        // marker.addListener('click', function(){
+                        //     infoWindow.open(map, marker)
+                        // })
+                    }
+
+                    addMarker({coords:{lat: jsonObj[i].lat, lng: jsonObj[i].lng},
+                                iconImage: "car.png",
+                                // content:'<h1>hello</h1>'
+                            })
+ 
+                }
                 
-     marker.addListener('click', function() {
-         infoWindow.open(map, marker);
-     });
-     }
+                distance.sort(function(a, b) {
+                    return a - b;
+                  });
+                var closest = distance[0];
+
+                const flightPlanCoordinates = [
+                    { lat: myLat, lng: myLong},
+                    { lat: obj[closest][0], lng: obj[closest][1]}
+                  ];
+                  const flightPath = new google.maps.Polyline({
+                    path: flightPlanCoordinates,
+                    geodesic: true,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2,
+                  });
+                
+                  flightPath.setMap(map);
+
+                var infoWindow = new google.maps.InfoWindow({
+                    content: `<h1>The closest vehicle is ${closest} miles away</h1>`
+                    });
+        
+                marker.addListener('click', function() {
+                    infoWindow.open(map, marker);
+                });
+            }
+            
+        }
+        
+        http.send(params);
     }
+
+    function failure(){}
 }
