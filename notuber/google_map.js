@@ -50,19 +50,16 @@ function initMap() {
                             marker.setIcon(props.iconImage)
                         }    
 
-                        // if(props.content) {
-                        //     var infoWindow = new google.maps.InfoWindow({
-                        //         content: props.content
-                        //         });
-                        // }
-                        // marker.addListener('click', function(){
-                        //     infoWindow.open(map, marker)
-                        // })
+                        var infoWindow = new google.maps.InfoWindow({
+                            content: `<h1 style="color:blue;">This vehicle is ${mile} miles away from you</h1>`
+                            });
+                        marker.addListener('click', function(){
+                            infoWindow.open(map, marker)
+                        })
                     }
 
                     addMarker({coords:{lat: jsonObj[i].lat, lng: jsonObj[i].lng},
                                 iconImage: "car.png",
-                                // content:'<h1>hello</h1>'
                             })
  
                 }
@@ -87,7 +84,7 @@ function initMap() {
                   flightPath.setMap(map);
 
                 var infoWindow = new google.maps.InfoWindow({
-                    content: `<h1>The closest vehicle is ${closest} miles away</h1>`
+                    content: `<h1 style="color:green;">The closest vehicle is ${closest} miles away</h1>`
                     });
         
                 marker.addListener('click', function() {
