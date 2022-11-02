@@ -10,6 +10,8 @@ Lab #10, Part 2 - populate the map with dynamic content --information that chang
 - [x] Make a request to the ride-hailing API and each vehicle on the map shall be a marker with a car icon
 - [x] Upon clicking on your marker on the map, display an information window noting the closest vehicle from where you are including the distance away in miles
 - [x] Render a polyline that connects "your" marker to the marker of the closest vehicle.
+#### Going Beyond
+- [x] Upon clicking on a marker for a vehicle, show popup infowindow noting how far away the vehicle is, in miles, from you.
 
 ## Collaboration
 Solo project
