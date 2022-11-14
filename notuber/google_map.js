@@ -19,7 +19,7 @@ function initMap() {
         
         //calling Ride-Hailing API
         var http = new XMLHttpRequest();
-        var url = `https://jordan-marsh.herokuapp.com/rides`;
+        var url = `https://hidden-hollows-35205.herokuapp.com/rides`;
         var params = `username=acM4zqDt&lat=${myLat}&lng=${myLong}`;
         http.open('POST', url, true);      
 
