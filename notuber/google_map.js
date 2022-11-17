@@ -7,7 +7,24 @@ function initMap() {
     function success(position) {
         var myLat = position.coords.latitude;
         var myLong = position.coords.longitude;
-
+        const random = (length = 8) => {
+            // Declare all characters
+            let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        
+            // Pick characers randomly
+            let str = '';
+            for (let i = 0; i < length; i++) {
+                str += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+        
+            return str;
+        
+        };
+        
+        var myUsername = random();
+        console.log(myLat);
+        console.log(myLong);
+        console.log(myUsername);
         var coords = new google.maps.LatLng(myLat, myLong);
         var mapOptions = {
             zoom: 3,
@@ -20,7 +37,7 @@ function initMap() {
         //calling Ride-Hailing API
         var http = new XMLHttpRequest();
         var url = `https://hidden-hollows-35205.herokuapp.com/rides`;
-        var params = `username=acM4zqDt&lat=${myLat}&lng=${myLong}`;
+        var params = `username=${myUsername}&lat=${myLat}&lng=${myLong}`;
         http.open('POST', url, true);      
 
         //Send the proper header information along with the request
