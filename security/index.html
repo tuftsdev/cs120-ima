@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Introduction</h1>
+    <h2>I am a security consultant, I was hired by a ride-hailing service called NotUber to document and resolve the security and privacy issues of their website</h2>  
+    <h1>Methodology</h1>
+    <h2>My methodology pen testing the system is utilizing the knowledge I learn in class and apply them by reading through the source code</h2>  
+    <h1>Abstract of Findings</h1>
+    <h2>The main issue I found was SQL injection, which is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious code to a database query. </h2>  
+    <h1>Issues Found 1:</h1>
+    <ul>
+        <li>Issue: Unrestricted usernames</li>
+        <li>Location: Under app.post and app.get</li>
+        <li>Severity of issue: High.  By not restriction user input, it allows user to send anything they want through the request and cause SQL injection</li>
+    </ul>
+    <h1>Issues Found 2:</h1>
+    <ul>
+        <li>Issue: Mixing userinput with code together</li>
+        <li>Location: inside theQuery itself</li>
+        <li>Severity of issue: High.  SQL Injection. By mixing the user input and the code, we are giving any access to data that they should not have access to</li>
+        <li>Resolution: to prevent this issue, we can use prepare statement. Separete sql statement with user input</li>
+    </ul>
+    <h1>Conclusion</h1>
+    <h2>This is heading 2</h2>  
+
 </body>
 </html>
