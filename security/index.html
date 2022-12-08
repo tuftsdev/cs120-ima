@@ -11,7 +11,10 @@
     <h1>Methodology</h1>
     <h2>My methodology pen testing the system is utilizing the knowledge I learn in class and apply them by reading through the source code</h2>  
     <h1>Abstract of Findings</h1>
-    <h2>The main issue I found was SQL injection, which is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious code to a database query. </h2>  
+    <h2>The main issues I found are SQL injection and Cross-site scripting attack.</h2>  
+    <h2>A SQL injection which is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious code to a database query</h2>
+    <h2>Cross site scripting (XSS) is an attack in which an attacker injects malicious executable scripts into the code of a trusted application or website. Attackers often initiate an XSS attack by sending a malicious link to a user and enticing the user to click it</h2>  
+    
     <h1>Issues Found 1:</h1>
     <ul>
         <li>Issue: Unrestricted usernames</li>
@@ -22,11 +25,25 @@
     <ul>
         <li>Issue: Mixing userinput with code together</li>
         <li>Location: inside theQuery itself</li>
-        <li>Severity of issue: High.  SQL Injection. By mixing the user input and the code, we are giving any access to data that they should not have access to</li>
+        <li>Severity of issue: High.  Data breach. By mixing the user input and the code, we are giving any access to data or system that they should not have access to anyone. SQL injection attacks allow attackers to spoof identity, tamper with existing data, cause repudiation issues such as voiding transactions or changing balances, allow the complete disclosure of all data on the system, destroy the data or make it otherwise unavailable, and become administrators of the database server.</li>
         <li>Resolution: to prevent this issue, we can use prepare statement. Separete sql statement with user input</li>
     </ul>
+    <h1>Issues Found 3:</h1>
+    <ul>
+        <li>Issue: Cross-site scripting (XSS)</li>
+        <li>Location: inside the response header 'response.header("Access-Control-Allow-Origin", "*");'</li>
+        <li>Severity of issue: High. Severe XSS attacks can cause disclosure of the user's session cookie, allowing an attacker to hijack the user's session and take over the account</li>
+        <li>Resolution: To prevent XSS attacks, application must validate all the input data, make sure that only the allowlisted data is allowed, and ensure that all variable output in a page is encoded before it is returned to the user</li>
+    </ul>
     <h1>Conclusion</h1>
-    <h2>This is heading 2</h2>  
+    <h2>There are several ways to prevent hackers from penetrating the site or personal account:</h2>  
+    <ol>
+        <li>Watch out for SQL injection</li>
+        <li>Protect against XSS attacks</li>
+        <li>Beware of error messages: Be careful with how much information you give away in your error messages</li>
+        <li>Validate on both sides: Validation should always be done both on the browser and server side</li>
+        <li>Use HTTPS</li>
+    </ol>
 
 </body>
 </html>
